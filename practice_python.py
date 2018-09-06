@@ -541,6 +541,7 @@ for news in news_list:
   print("-"*60)
 
 '''
+
 '''
 str = 'prasit bagal'
 str1 = 'abba'

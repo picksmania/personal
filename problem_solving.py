@@ -120,8 +120,8 @@ for i in range(0,len(x)):
                 continue
 
 print count
-
 '''
+
 '''
 print"====================================================="
 print" DECIMAL TO BINARY AND BINARY TO DECIMAL CONVERSION"
@@ -229,6 +229,8 @@ func(l)
 print "OUTSIDE l::",l
 print "OUTSIDE id(l):",id(l)
 '''
+
+
 '''
 with open(r'C:\Prasit\drive_list.txt','r') as FH:
     line = FH.readlines()
@@ -275,3 +277,29 @@ print platform.python_version()
 print sys.version
 print sys.version_info
 '''
+
+# *********** SEARCH ANY PARTICULAR THING IN A PYTHON FILE ***********8
+
+import re
+from termcolor import colored
+path = r'C:\test_project\SKP_MH_Project'
+files_list = []
+pat = r'linked list'
+for root, dirs, files in os.walk(path, topdown=True):
+    #print dirs
+    for name in files:
+        if name.endswith('.py'):
+            files_list.append(os.path.join(root, name))
+#print files_list
+for file in files_list:
+    print "Working on..",file
+    with open(file,'r') as FH:
+        data = FH.read()
+        matched_data = re.findall(pat,data)
+        if matched_data:
+            text1 = colored(pat,'green')
+            text2 = colored(file,'blue')
+            print text1 + ' found in ' + text2
+        else:
+            continue
+
